@@ -33,7 +33,7 @@ public class Calculator {
 	 */
 	
 	public int getTotal () {
-		return 0;
+		return total;
 	}
 	/**
 	 * The getTotal method is just a getter for the current 
@@ -42,7 +42,7 @@ public class Calculator {
 	 */
 	
 	public void add (int value) {
-		
+		total = total + value ;
 	}
 	/**
 	 * This method adds the two values. Current total + parameter
@@ -51,7 +51,7 @@ public class Calculator {
 	 */
 	
 	public void subtract (int value) {
-		
+		total = total - value ;
 	}
 	/**
 	 * This method subtracts the two values. 
@@ -61,7 +61,7 @@ public class Calculator {
 	 */
 	
 	public void multiply (int value) {
-		
+		total = total * value ;
 	}
 	/**
 	 * This method multiplies the two values. 
@@ -70,11 +70,19 @@ public class Calculator {
 	 * @return current total
 	 */
 	public void divide (int value) {
-		
+		if(value == 0) {
+			total = 0;
+		}else {
+			total = total / value ;
+		}
 	}
 	/**
 	 * This method divides the two values. 
 	 * Current total / parameter value
+	 * The if statement checks if parameter entered
+	 * is zero, if it is true the total value is set
+	 * equal to zero if not the division successfully
+	 * is done.
 	 * @param value entered by user or the main file
 	 * @return current total
 	 */
