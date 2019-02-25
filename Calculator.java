@@ -24,12 +24,18 @@ public class Calculator {
 	 * value of the sum or the current value displayed after all
 	 * operations.
 	 */
-	
+	 private StringBuffer operationHistory;
+	/**
+	 * This variable operationHistory contains the sequence
+	 * information of the operations done on the calculator.
+	 */
 	public Calculator () {
 		total = 0;  // not needed - included for clarity
+		operationHistory = new StringBuffer("0");
 	}
 	/**
 	 * This constructor help to initialize variable total to zero.
+	 * The object for history is created and initialized with a zero too.
 	 */
 	
 	public int getTotal () {
@@ -43,31 +49,37 @@ public class Calculator {
 	
 	public void add (int value) {
 		total = total + value ;
+		operationHistory.append(" + " + value);
 	}
 	/**
 	 * This method adds the two values. Current total + parameter
+	 * Appends a subsequence of the specified 
+	 * CharSequence to this sequence.
 	 * @param value entered by user or the main file
-	 * @return current total
 	 */
 	
 	public void subtract (int value) {
 		total = total - value ;
+		operationHistory.append(" - " + value);
 	}
 	/**
 	 * This method subtracts the two values. 
 	 * Current total - parameter value
 	 * @param value entered by user or the main file
-	 * @return current total
+	 * Appends a subsequence of the specified 
+	 * CharSequence to this sequence.
 	 */
 	
 	public void multiply (int value) {
 		total = total * value ;
+		operationHistory.append(" * " + value);
 	}
 	/**
 	 * This method multiplies the two values. 
 	 * Current total * parameter value
 	 * @param value entered by user or the main file
-	 * @return current total
+	 * Appends a subsequence of the specified 
+	 * CharSequence to this sequence.
 	 */
 	public void divide (int value) {
 		if(value == 0) {
@@ -75,20 +87,22 @@ public class Calculator {
 		}else {
 			total = total / value ;
 		}
+		operationHistory.append(" / " + value);
 	}
 	/**
 	 * This method divides the two values. 
 	 * Current total / parameter value
-	 * The if statement checks if parameter entered
-	 * is zero, if it is true the total value is set
+	 * The <if(value == 0)> statement checks if parameter 
+	 * entered is zero, if it is true the total value is set
 	 * equal to zero if not the division successfully
-	 * is done.
+	 * is done with the help of <else> statement.
 	 * @param value entered by user or the main file
-	 * @return current total
+	 * Appends a subsequence of the specified 
+	 * CharSequence to this sequence.
 	 */
 	
 	public String getHistory () {
-		return "";
+		return operationHistory.toString();
 	}
 	/**
 	 * This method gets history of the values entered in the
